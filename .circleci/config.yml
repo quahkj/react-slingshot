@@ -10,7 +10,7 @@ jobs:
       - save_cache:
           key: "npm-packages"
           paths:
-            - node_modules
+            - ~/node_modules
       - run: npm run lint
 
   test:
