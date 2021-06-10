@@ -9,7 +9,16 @@ jobs:
       - run: npm install
       - run: npm run lint
 
+jobs:
+  test:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: npm test
+
 workflows:
   ciworkflow:
     jobs:
       - build
+      - test:
+          requires: build
