@@ -7,10 +7,11 @@ jobs:
     steps:
       - checkout
       - run: npm i
+      - run: pwd
       - save_cache:
-          key: "npm-packages3"
+          key: "npm-packages4"
           paths:
-            - /node_modules
+            - ./node_modules
       - run: npm run lint
 
   test:
@@ -19,7 +20,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: "npm-packages3"
+          key: "npm-packages4"
       - run: npm i
       - run: npm run test
 
