@@ -1,1 +1,14 @@
+version: 2.1
 
+jobs:
+  build:
+    docker:
+      - image: circleci/node
+    steps:
+      - run: npm install
+      - run: npm run lint
+
+workflows:
+  ciworkflow:
+    jobs:
+      - build
